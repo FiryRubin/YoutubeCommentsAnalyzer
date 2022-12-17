@@ -8,4 +8,6 @@ import pandas as pd
 
 from utils import *
 
-scrape_comments(url="https://www.youtube.com/watch?v=_bDXXWQxK38", loads=2)
+my_location = scrape_comments(url="https://www.youtube.com/watch?v=_bDXXWQxK38", loads=2)
+my_file = pd.read_csv(my_location)
+print(my_file)
