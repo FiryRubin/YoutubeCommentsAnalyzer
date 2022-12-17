@@ -19,6 +19,7 @@ def save_df(dataframe: pd.DataFrame):
     dataframe.to_csv(slug)
     return slug
 
+
 def scrape_comments(url: str, loads: int):
     data = []
 
@@ -34,6 +35,15 @@ def scrape_comments(url: str, loads: int):
             data.append(comment.text)
 
     df = pd.DataFrame(data, columns=['comment'])
+    df = clean_scraped_df(df)
     location = save_df(df)
     print("Scrape of Video finished and saved under ", location)
     return location
+
+
+def clean_scraped_df(dataframe: pd.DataFrame):
+    if dataframe.size > 10:
+        return dataframe[3:len(dataframe) - 7]
+    else:
+        print("Warning - Data has not been cleand do to insufficient length")
+        return dataframe
