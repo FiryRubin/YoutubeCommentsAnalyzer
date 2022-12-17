@@ -8,4 +8,4 @@ import pandas as pd
 
 from utils import *
 
-scrape_comments(url="https://www.youtube.com/watch?v=_bDXXWQxK38", count=2)
+scrape_comments(url="https://www.youtube.com/watch?v=_bDXXWQxK38", loads=2)

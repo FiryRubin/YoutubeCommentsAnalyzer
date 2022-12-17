@@ -19,14 +19,14 @@ def save_df(dataframe: pd.DataFrame):
     dataframe.to_csv(slug)
     return slug
 
-def scrape_comments(url: str, count: int):
+def scrape_comments(url: str, loads: int):
     data = []
 
     with Chrome(executable_path=r'C:\Program Files\chromedriver.exe') as driver:
         wait = WebDriverWait(driver, 15)
         driver.get("https://www.youtube.com/watch?v=kuhhT_cBtFU&t=2s")
 
-        for item in range(2):
+        for item in range(loads):
             wait.until(EC.visibility_of_element_located((By.TAG_NAME, "body"))).send_keys(Keys.END)
             time.sleep(15)
 
