@@ -10,3 +10,5 @@ matplotlib
 selenium
 
 webdriver-manager
+
+germansentiment
